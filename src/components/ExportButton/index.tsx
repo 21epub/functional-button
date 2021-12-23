@@ -1,6 +1,6 @@
 import { message } from 'antd'
-import type { ExportButtonProps} from 'src/types';
-import { ExportStatus } from 'src/types'
+import type { ExportButtonProps} from '../../types';
+import { ExportStatus } from '../../types'
 import request from 'umi-request'
 
 
@@ -14,7 +14,7 @@ async function getExportDataStatus(exportUrl:string) {
     return resp
 }
 
-const ExportButton:React.FC<ExportButtonProps>=(props)=> {
+const ExportButton:React.FC<ExportButtonProps> = (props) => {
     const {exportUrl,content="导出",style} = props
     
     const getExportStatus = async () =>{

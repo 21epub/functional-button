@@ -17,3 +17,22 @@ node >= 16
 ## storybook
 
 `npm run storybook`
+
+## usage
+
+### ExportButton
+
+```
+import {ExportButton} from '@21epub/functional-button'
+
+export default function Test() {
+
+    return(
+        <ExportButton 
+            content="导出PDF" 
+            exportUrl={`/v3/api/docset/${slug}/export_pdf/`}
+        />
+    )
+}
+
+```

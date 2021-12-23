@@ -8,6 +8,6 @@ export enum ExportStatus {
 
 export interface ExportButtonProps {
     exportUrl:string
-    content?:React.ReactNode|string
+    content?:React.ReactNode
     style?: React.CSSProperties
 }
