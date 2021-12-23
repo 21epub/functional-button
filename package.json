@@ -1,6 +1,6 @@
 {
-  "name": "@21epub/quick-access",
-  "version": "0.2.2",
+  "name": "@21epub/functional-button",
+  "version": "0.1.0",
   "description": "",
   "main": "dist/index.js",
   "module": "dist/index.esm.js",
@@ -22,11 +22,7 @@
     "react-dom": ">=16.0.0"
   },
   "dependencies": {
-    "@ant-design/colors": "^6.0.0",
-    "@ant-design/icons": "^4.7.0",
     "antd": "^4.17.2",
-    "react-query": "^3.34.4",
-    "styled-components": "^5.3.3",
     "umi-request": "^1.4.0"
   },
   "devDependencies": {

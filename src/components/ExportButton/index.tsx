@@ -1,6 +1,7 @@
 import { message } from 'antd'
+import type { ExportButtonProps} from 'src/types';
+import { ExportStatus } from 'src/types'
 import request from 'umi-request'
-import { ExportButtonProps, ExportStatus } from './index.types'
 
 
 function exportData(exportUrl:string) {

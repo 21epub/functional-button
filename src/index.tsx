@@ -1,2 +1,2 @@
-export * from './components/ExportButton/ExpoerButton.types'
+export * from './types'
 export { default as ExportButton } from './components/ExportButton'
