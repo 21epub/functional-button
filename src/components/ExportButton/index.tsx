@@ -19,14 +19,14 @@ async function getExportDataStatus(exportUrl:string) {
 const ExportButton:React.FC<ExportButtonProps> = (props) => {
     const {exportUrl,content="导出",style} = props
     let requestTimes = 0;
-    const { state: data, dispatch } = useContext(AppContext)
-    
-    console.log("data",data);
-    
 
+    const { dispatch } = useContext(AppContext)
+    
     const getExportStatus = async () =>{
         requestTimes += 1
-        if(requestTimes < 30){
+        
+        // 超时设置3分钟
+        if(requestTimes < 90){
             const res = await getExportDataStatus(exportUrl)
 
             if (res?.code === 200) {
