@@ -16,7 +16,11 @@
     "isolatedModules": true,
     "jsx": "react-jsx",
     "allowSyntheticDefaultImports": true,
-    "noFallthroughCasesInSwitch": true
+    "noFallthroughCasesInSwitch": true,    
+    "outDir": "dist",
+    "paths": {
+      "src": ["src"]
+    }
   },
   "include": ["src"],
   "exclude": ["node_modules"]

@@ -10,8 +10,8 @@
     "dist"
   ],
   "scripts": {
-    "dev": "rollup -w -c",
-    "build": "rm -rf dist && rollup -c",
+    "dev": "rollup -c -w && tsc-alias -w",
+    "build": "rm -rf dist && rollup -c && tsc-alias",
     "lint": "eslint .",
     "release": "npm version patch && npm run build && npm publish",
     "storybook": "start-storybook -p 6006",
@@ -54,6 +54,7 @@
     "eslint-plugin-yml": "^0.12.0",
     "http-proxy-middleware": "^2.0.1",
     "rollup": "^2.60.2",
+    "tsc-alias": "^1.5.0",
     "typescript": "^4.5.2"
   }
 }
