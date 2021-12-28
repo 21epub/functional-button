@@ -27,7 +27,7 @@ const ExportButton:React.FC<ExportButtonProps> = (props) => {
         requestTimes += 1
         
         // 超时设置5分钟
-        if(requestTimes < 150){
+        if(requestTimes < 66){
             const res = await getExportDataStatus(exportUrl)
 
             if (res?.code === 200) {
@@ -44,7 +44,7 @@ const ExportButton:React.FC<ExportButtonProps> = (props) => {
                         setTimeout(() =>{
                             getExportStatus()
                         },2000)
-                    }else if(requestTimes>30 && requestTimes<91){
+                    }else if(requestTimes>30 && requestTimes<55){
                         setTimeout(() =>{
                             getExportStatus()
                         },5000)
