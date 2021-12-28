@@ -22,11 +22,12 @@ const ExportButton:React.FC<ExportButtonProps> = (props) => {
 
     const { dispatch } = useContext(AppContext)
     
+    // eslint-disable-next-line sonarjs/cognitive-complexity
     const getExportStatus = async () =>{
         requestTimes += 1
         
-        // 超时设置3分钟
-        if(requestTimes < 90){
+        // 超时设置5分钟
+        if(requestTimes < 150){
             const res = await getExportDataStatus(exportUrl)
 
             if (res?.code === 200) {
@@ -39,9 +40,20 @@ const ExportButton:React.FC<ExportButtonProps> = (props) => {
                 }else if (exportItem.status === ExportStatus.EXPORTING) {
                     dispatch({type: 'selectExportStatus',payload: {exportStatus: exportItem.status}})
                     //处理中则递归调用查询函数
-                    setTimeout(() =>{
-                        getExportStatus()
-                    },2000)
+                    if(requestTimes<31 ){
+                        setTimeout(() =>{
+                            getExportStatus()
+                        },2000)
+                    }else if(requestTimes>30 && requestTimes<91){
+                        setTimeout(() =>{
+                            getExportStatus()
+                        },5000)
+                    }else{
+                        setTimeout(() =>{
+                            getExportStatus()
+                        },10000)
+                    }
+
                 } else if (exportItem.status === ExportStatus.ERROR) {
                     dispatch({type: 'selectExportStatus',payload: {exportStatus: exportItem.status}})
                     message.error('导出失败，请重试！')
@@ -50,7 +62,7 @@ const ExportButton:React.FC<ExportButtonProps> = (props) => {
                 message.error(res?.msg)
             }
         }else{
-            message.error('导出超时！')
+            message.error('导出超时，请重试！')
         }
     
     }
