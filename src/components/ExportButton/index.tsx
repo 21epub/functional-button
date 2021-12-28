@@ -62,6 +62,7 @@ const ExportButton:React.FC<ExportButtonProps> = (props) => {
                 message.error(res?.msg)
             }
         }else{
+            dispatch({type: 'selectExportStatus',payload: {exportStatus: 4}})
             message.error('导出超时，请重试！')
         }
     
